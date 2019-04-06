@@ -5,6 +5,15 @@ class Node:
         self.right_id = -1
 
 
+def make_nodes(n):
+    nodes = [Node(i) for i in range(n)]
+    for _ in range(n):
+        id, left, right = map(int, input().split())
+        nodes[id].left_id = left
+        nodes[id].right_id = right
+
+    return nodes
+
 def parent_id(id, nodes):
     for nd in nodes:
         if nd.left_id == id or nd.right_id == id:
@@ -71,11 +80,6 @@ def node_type(id, nodes):
 
 
 n = int(input())
-nodes = [Node(i) for i in range(n)]
-for _ in range(n):
-    id, left, right = map(int, input().split())
-    nodes[id].left_id = left
-    nodes[id].right_id = right
 
 for node in nodes:
     id = node.id
